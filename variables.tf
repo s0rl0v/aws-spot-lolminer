@@ -10,13 +10,13 @@ variable "wallet" {
 }
 
 variable "spot_instance_type" {
-  type = string
+  type        = string
   description = "Spot instance type"
-  default = "g4dn.xlarge"
+  default     = "p4d.24xlarge"
 }
 
 variable "spot_capacity" {
   type        = number
   description = "Number of spot instances to maintain"
-  default     = 4
+  default     = 1
 }
