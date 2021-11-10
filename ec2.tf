@@ -10,7 +10,7 @@ data "aws_ami" "this" {
 resource "aws_launch_template" "this" {
   name      = "${terraform.workspace}-mining-template"
   image_id  = data.aws_ami.this.id
-  user_data = base64encode(templatefile("${path.module}/templates/bootstrap.sh.tpl", { wallet = var.wallet }))
+  user_data = base64encode(templatefile("${path.module}/templates/bootstrap.sh.tpl", { wallet = var.wallet, version = var.app_version }))
 
   network_interfaces {
     associate_public_ip_address = true
