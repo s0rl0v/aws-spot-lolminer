@@ -22,7 +22,7 @@ resource "aws_spot_fleet_request" "this" {
   terminate_instances_with_expiration = true
   valid_until                         = "2032-11-04T20:44:20Z"
 
-  allocation_strategy = "lowestPrice"
+  allocation_strategy = "capacityOptimized"
   target_capacity     = var.spot_capacity
 
   dynamic "launch_template_config" {
