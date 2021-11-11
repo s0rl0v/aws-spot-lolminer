@@ -1,7 +1,3 @@
-data "aws_availability_zones" "available" {
-  state = "available"
-}
-
 module "cidrs" {
   source  = "hashicorp/subnets/cidr"
   version = "1.0.0"

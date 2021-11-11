@@ -1,12 +1,3 @@
-data "aws_ami" "this" {
-  owners      = ["amazon"]
-  most_recent = true
-  filter {
-    name   = "name"
-    values = ["Deep Learning AMI (Amazon Linux 2) Version 52.0"]
-  }
-}
-
 resource "aws_launch_template" "this" {
   name      = "${terraform.workspace}-mining-template"
   image_id  = data.aws_ami.this.id
