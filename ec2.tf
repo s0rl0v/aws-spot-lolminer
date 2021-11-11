@@ -25,6 +25,8 @@ resource "aws_spot_fleet_request" "this" {
   allocation_strategy = "capacityOptimized"
   target_capacity     = var.spot_capacity
 
+  spot_price = var.max_price
+
   dynamic "launch_template_config" {
     for_each = module.vpc.public_subnets
     content {

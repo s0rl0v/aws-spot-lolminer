@@ -1,10 +1,10 @@
 provider "aws" {
   profile = "sorlov"
-  region = var.region
+  region  = var.region
 
   default_tags {
     tags = {
-      Managed     = "Terraform"
+      Managed = "Terraform"
     }
   }
 }
