@@ -19,7 +19,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "~> 2.0"
 
-  name = "lol-test"
+  name = "${terraform.workspace}-gpu"
   cidr = var.cidr
 
   azs            = keys(module.cidrs.network_cidr_blocks)
