@@ -36,11 +36,11 @@ variable "spot_instance_type" {
 variable "spot_capacity" {
   type        = number
   description = "Number of spot instances to maintain"
-  default     = 1
+  default     = 3
 }
 
 variable "max_price" {
-  type        = number
+  type        = string
   description = "Maximum price per hour (USD) to pay for instance"
-  default     = 15
+  default     = "15.0"
 }

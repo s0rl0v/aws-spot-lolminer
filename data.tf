@@ -1,5 +1,10 @@
-data "aws_availability_zones" "available" {
-  state = "available"
+data "aws_ec2_instance_type_offerings" "this" {
+  filter {
+    name   = "instance-type"
+    values = [var.spot_instance_type]
+  }
+
+  location_type = "availability-zone"
 }
 
 data "aws_ami" "this" {
@@ -9,4 +14,8 @@ data "aws_ami" "this" {
     name   = "name"
     values = ["Deep Learning AMI (Amazon Linux 2) Version 52.0"]
   }
+}
+
+data "aws_iam_role" "this" {
+  name = "AWSServiceRoleForEC2SpotFleet"
 }

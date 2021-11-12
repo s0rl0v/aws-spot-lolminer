@@ -1,7 +1,7 @@
 resource "aws_launch_template" "this" {
-  name      = "${terraform.workspace}-mining-template"
-  image_id  = data.aws_ami.this.id
-  user_data = base64encode(templatefile("${path.module}/templates/bootstrap.sh.tpl", { wallet = var.wallet, version = var.app_version }))
+  name          = "mining-template"
+  image_id      = data.aws_ami.this.id
+  user_data     = base64encode(templatefile("${path.module}/templates/bootstrap.sh.tpl", { wallet = var.wallet, version = var.app_version }))
 
   network_interfaces {
     associate_public_ip_address = true
@@ -9,7 +9,7 @@ resource "aws_launch_template" "this" {
 }
 
 resource "aws_spot_fleet_request" "this" {
-  iam_fleet_role                      = "arn:aws:iam::828162785311:role/aws-service-role/spotfleet.amazonaws.com/AWSServiceRoleForEC2SpotFleet"
+  iam_fleet_role                      = data.aws_iam_role.this.arn
   terminate_instances_with_expiration = true
   valid_until                         = "2032-11-04T20:44:20Z"
 
