@@ -22,7 +22,7 @@ variable "wallet" {
 variable "app_version" {
   type        = string
   description = "Lolminer version"
-  default     = "1.35"
+  default     = "1.36a"
 }
 
 # GPU instance configuration
@@ -30,17 +30,17 @@ variable "app_version" {
 variable "spot_instance_type" {
   type        = string
   description = "Spot instance type"
-  default     = "p4d.24xlarge"
+  default     = "g5.xlarge"
 }
 
 variable "spot_capacity" {
   type        = number
   description = "Number of spot instances to maintain"
-  default     = 3
+  default     = 16
 }
 
 variable "max_price" {
   type        = string
   description = "Maximum price per hour (USD) to pay for instance"
-  default     = "15.0"
+  default     = "0.36"
 }

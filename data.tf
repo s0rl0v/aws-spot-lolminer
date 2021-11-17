@@ -12,7 +12,7 @@ data "aws_ami" "this" {
   most_recent = true
   filter {
     name   = "name"
-    values = ["Deep Learning AMI (Amazon Linux 2) Version 52.0"]
+    values = ["Deep Learning Base AMI (Amazon Linux 2) Version 46.0"]
   }
 }
 

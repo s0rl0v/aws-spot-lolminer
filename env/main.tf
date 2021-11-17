@@ -10,8 +10,8 @@ module "us-west-2-miner" {
   wallet = var.wallet
 }
 
-module "eu-central-1-miner" {
+module "eu-west-1-miner" {
   source = "../"
-  region = "eu-central-1"
+  region = "eu-west-1"
   wallet = var.wallet
 }

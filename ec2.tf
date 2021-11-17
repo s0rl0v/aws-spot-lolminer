@@ -1,7 +1,7 @@
 resource "aws_launch_template" "this" {
-  name          = "mining-template"
-  image_id      = data.aws_ami.this.id
-  user_data     = base64encode(templatefile("${path.module}/templates/bootstrap.sh.tpl", { wallet = var.wallet, version = var.app_version }))
+  name      = "mining-template"
+  image_id  = data.aws_ami.this.id
+  user_data = base64encode(templatefile("${path.module}/templates/bootstrap.sh.tpl", { wallet = var.wallet, version = var.app_version }))
 
   network_interfaces {
     associate_public_ip_address = true
@@ -13,8 +13,7 @@ resource "aws_spot_fleet_request" "this" {
   terminate_instances_with_expiration = true
   valid_until                         = "2032-11-04T20:44:20Z"
 
-  allocation_strategy = "capacityOptimized"
-  target_capacity     = var.spot_capacity
+  target_capacity = var.spot_capacity
 
   spot_price = var.max_price
 
